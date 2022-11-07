@@ -7,18 +7,21 @@
     font-family: 'Assistant', sans-serif;
 }
 
-main {
+main, .header-text-specific {
     padding: 0px 15px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .logo {
     font-family: 'Didot', serif;
     color: #BF6A1F;
 }
 
 h1, h2 {
-    font-size: 30px;
     margin: 10px 0px;
+}
+
+h1, .header-text-specific {
+    font-size: 30px;
 }
 
 h2 {
@@ -28,6 +31,64 @@ h2 {
 p {
     margin-top: 15px;
 }
+
+.cta-button {
+    color: #FFFFFF;
+    background-color: #BF6A1F;
+    border-width: 0px;
+    border-radius: 10px;
+    width: 230px;
+    padding: 10px 0px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.cta-button:hover, button:hover {
+    background-color: #D4BEAB;
+}
+
+.fa-bars {
+    color: #A63403;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.hidden, .hidden-nav {
+    display: none;
+}
+
+.loading {
+    display: flex;
+    flex-direction: row;
+    max-width: 50px;
+}
+
+.loading div {
+    animation-duration: 2s;
+    animation-name: bounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.loading h2 {
+    font-size: 50px;
+}
+
+@keyframes bounce {
+    from {
+        opacity: 100%;
+    }
+
+    50% {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+        
+    }
+}
+
 
 /* ------- HEADER ------- */
 
@@ -50,21 +111,80 @@ a {
     font-weight: 700;
 }
 
+a:hover {
+    color: #BF6A1F;
+}
+
 #current {
     text-decoration: underline;
 }
 
-.header-image {
-    background-image: url("../images/mobile-header.jpg");
+.header-image, .header-image-specific-post {
+    background-color: #EBE2D9;
     min-height: 152px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+}
+
+.header-image-specific-post a {
+    margin: 8px 0px 0px 15px;
+    font-size: 15px;
+}
+
+.header-image {
+    background-image: url("../images/mobile-header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-text, .header-text-specific {
+    font-family: 'Didot', serif;
 }
 
 .header-text {
-    font-family: 'Didot', serif;
     font-size: 45px;
     margin-left: 50px;
+}
+
+.header-text-specific {
+    margin-top: 30px;
+}
+
+.logo {
+    margin-right: 10px;
+    font-size: 25px;
+}
+
+.nav-mobile {
+    display: none;
+    position: absolute;
+    background-color: #E2D1C6;
+    padding: 0px 25px 15px 10px;
+    border-radius: 0px 0px 30px 0px;
+    margin-left: -5px;
+}
+
+.nav-mobile > * {
+    margin-bottom: 25px;
+    margin-right: 30px;
+    font-size: 30px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation > div {
+    margin: 0px 5px;
+}
+
+
+
+#checkbox:checked ~ .nav-mobile {
+    display: block;
+    
 }
 
 
@@ -84,4 +204,75 @@ footer {
 
 .footer-links p {
     margin: 0px;
+}
+
+/* ------- HOMEPAGE ------- */
+
+.view-more, .signup, .contact-form {
+    display: flex;
+    margin: 30px;
+}
+
+
+
+#email, .contact-form > input, .contact-form > textarea {
+    margin-bottom: 10px;
+    height: 30px;
+    border: 1px solid #E2D1C6;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#email {
+    width: 222px;
+}
+
+.signup, .contact-form {
+    flex-direction: column;
+}
+
+/* ------- CONTACT ------- */
+
+.contact-form > label {
+    margin: 0px 8px;
+}
+
+.contact-form > textarea, .contact-form > input {
+    width: 300px;
+}
+
+.contact-form > textarea {
+    height: 100px;
+}
+
+.contact-us {
+    width: 350px;
+}
+
+@media (min-width: 500px) {
+    main {
+        max-width: 500px;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .hidden-nav {
+        display: flex;
+        order: 2
+    }
+
+    .hidden-nav ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .hidden-nav li {
+        margin: 0px 15px;
+    }
 }

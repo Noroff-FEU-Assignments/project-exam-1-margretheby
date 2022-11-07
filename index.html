@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome">
+    <meta name="description" content="Welcome to SkinUp! A blog that helps guide you to find the right way to take care of your skin depending on your needs.">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/14580da1e1.js" crossorigin="anonymous"></script>
-    <title>SkinUp</title>
+    <title>Welcome | SkinUp</title>
 </head>
 <body>
     <header>
         <section class="navigation">
             <div class="hamburger-menu">
-                <nav>
+                <label for="checkbox"><i class="fa-solid fa-bars"></i></label>
+                <input type="checkbox" id="checkbox" name="checkbox" class="hidden">
+                <nav class="nav-mobile">
+                    <ul>
+                        <li id="current"><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="posts.html">Posts</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="hamburger-menu hidden-nav">
+                <nav class="nav-desktop">
                     <ul>
                         <li id="current"><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
@@ -23,7 +35,7 @@
                 </nav>
             </div>
             <div>
-                <a href="index.html">SkinUp</a>
+                <a href="index.html" class="logo">SkinUp</a>
             </div>
         </section>
         <section class="header-image">
@@ -35,9 +47,26 @@
             <h1>Keep your skin happy, healthy and beautiful.</h1>
             <p>Everything you need to know to get your skincare routine up and running. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
         </section>
-        <section>
+        <section class="latest-posts">
             <h2>Latest posts</h2>
-            <div class="posts"></div>
+            <div class="posts">
+                <div class="loading">
+                    <div><h2>.</h2></div>
+                    <div><h2>.</h2></div>
+                    <div><h2>.</h2></div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="posts.html"><button class="cta-button">More posts</button></a>
+            </div>
+        </section>
+        <section class="newsletter">
+            <h2>Want regular updates?</h2>
+            <p>Enter your e-mail to sign up for our weekly newsletter:</p>
+            <form class="signup">
+               <input type="email" id="email" name="email" placeholder="john.doe@e-mail.com">
+               <button class="cta-button">Sign me up!</button>
+            </form>
         </section>
     </main>
     <footer>

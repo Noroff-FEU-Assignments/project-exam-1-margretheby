@@ -40,25 +40,35 @@
         </section>
         <section class="header-image">
             <h2 class="header-text">Contact</h2>
+            <h2 class="header-text-web">SkinUp</h2>
         </section>
     </header>
     <main>
         <section>
-            <div>
-                <h1>Send us a message</h1>
-                <p>We would love to hear from you! Please reach out to us if you have something on your mind.</p>
+            <div class="contact-layout">
                 <div class="contact-us">
+                    <h1 class="hidden-web">Send us a message</h1>
+                    <h1 class="hidden-mobile">Contact us</h1>
+                    <p>We would love to hear from you! Please reach out to us if you have something on your mind.</p>
                     <form class="contact-form">
                         <label for="name">Name</label><input type="text" id="name" name="name">
+                        <p class="hidden-p">Your name must be more than 5 characters</p>
                         <label for="e-mail">E-mail</label><input type="e-mail" id="e-mail" name="e-mail">
+                        <p class="hidden-p">Please enter a valid e-mail address</p>
                         <label for="subject">Subject</label><input type="text" id="subject" name="subject">
+                        <p class="hidden-p">The subject must be more than 15 characters</p>
                         <label for="message">Message</label><textarea id="message" name="message"></textarea>
+                        <p class="hidden-p">Your message must be more than 25 characters</p>
                     </form>
+                    <div class="view-more">
+                        <button class="cta-button">Send message</button>
+                    </div>
+                </div>
+                <div class="hidden-mobile contact-image">
+                    <img src="images/web-contact.jpg" alt="Woman smiling with eyemask on">
                 </div>
             </div>
-            <div class="view-more">
-                <button class="cta-button">Send message</button>
-            </div>
+
         </section>
 
     </main>

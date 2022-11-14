@@ -38,10 +38,10 @@ p, .post-text {
     background-color: #BF6A1F;
     border-width: 0px;
     border-radius: 10px;
-    width: 230px;
-    padding: 10px 0px;
-    font-size: 30px;
-    font-weight: 700;
+    min-width: 205px;
+    padding: 4px 0px;
+    font-size: 25px;
+    font-weight: 500;
 }
 
 .cta-button:hover, button:hover {
@@ -58,9 +58,9 @@ p, .post-text {
 .hidden-p, 
 .hidden-nav, 
 .hide-p > p, 
+.hide-img > figure,
 .hide-p > ul, 
-.fa-angle-left, 
-.fa-angle-right, 
+#arrows,
 .carousel-dots, 
 .header-text-web, 
 .hidden-mobile {
@@ -118,6 +118,7 @@ p, .post-text {
 header, footer {
     background-color: #E2D1C6;
 }
+
 
 header {
     margin-top: 0px;
@@ -185,7 +186,7 @@ a:hover, .fa-angle-left:hover, .fa-angle-right:hover {
 }
 
 .logo {
-    margin-right: 10px;
+    margin: 0px 30px;
     font-size: 25px;
 }
 
@@ -205,6 +206,7 @@ a:hover, .fa-angle-left:hover, .fa-angle-right:hover {
 }
 
 .navigation {
+    max-width: 1170px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -252,10 +254,11 @@ footer {
     margin-right: 10px;
 }
 
-.posts, .all-posts  {
+.posts, .all-posts {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .posts {
@@ -289,7 +292,7 @@ footer {
 }
 
 #email {
-    width: 222px;
+    width: 200px;
 }
 
 .signup, .contact-form {
@@ -332,7 +335,7 @@ footer {
 
 
 @media (min-width: 600px ) {
-    main {
+    main, .footer {
         max-width: 1170px;
     }
 
@@ -376,6 +379,9 @@ footer {
     .header-text-web {
         font-size: 5em;
         display: block;
+        max-width: 1170px;
+        margin-right: 250px;
+
     }
 
     .header-text {
@@ -391,6 +397,7 @@ footer {
         flex-direction: row;
         justify-content: center;
     }
+
     .back-to-posts {
         margin-top: -22px;
     }
@@ -434,10 +441,22 @@ footer {
         width: 350px;
     }
 
+    /*-----------SPECIFIC POST -----------*/
+
+    .post-container {
+        flex-direction: column;
+    }
+
+    .post-content {
+        max-width: 540px;
+    }
+
+
     /*-----------FOOTER-----------*/
     .footer {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     footer {
@@ -457,7 +476,7 @@ footer {
 
     .header-text-web {
         font-size: 5em;
-        margin-left: 350px;
+        margin-right: 860px;
     }
 
     .margin-left {
@@ -469,7 +488,7 @@ footer {
         padding-left: 8px;
     }
 
-    .fa-angle-left, .fa-angle-right {
+    #arrows {
         display: block;
         margin-bottom: 350px;
     }
@@ -492,6 +511,26 @@ footer {
     .post {
         min-height: 550px;
     }
+
+    .post-container {
+        flex-direction: column;
+    }
+
+
+    .post-content {
+        flex-direction: row-reverse;
+    }
+
+    .post-content {
+        max-width: 1170px;
+        gap: 50px;
+    }
+
+    .hide-p {
+        min-width: 350px;
+    }
+
+
 
     .about {
         gap: 40px;

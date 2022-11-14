@@ -35,7 +35,7 @@ async function fetchPosts() {
                 const postImage = posts[i].content.rendered;
                 if (i <= 5) {
                     homePageContainer.innerHTML += `<div class="post">
-                        <a href="specific-post.html?=${+ posts[i].id}">
+                        <a href="specific-post.html?id=${+ posts[i].id}">
                         <div class="hide-p">${postImage}</div>
                             <div class="post-text">
                             <h2>${posts[i].title.rendered}</h2>

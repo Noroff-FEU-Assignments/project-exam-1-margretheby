@@ -80,5 +80,36 @@ async function fetchPosts() {
 const urlParams = new URLSearchParams(window.location.search);
 const idParam = urlParams.get("id");
 
+// News letter form validation
+const form = document.querySelector("form");
+const email = document.querySelector("#email-homepage");
+const invalidEmail = document.querySelector(".hidden-p");
+const successMessage = document.querySelector(".success-message");
+
+function validateSignUp() {
+    event.preventDefault();
+    let submitForm = true;
+
+    if(validateEmail(email.value) === true) {
+        invalidEmail.style.display = "none";
+    } else {
+        invalidEmail.style.display = "block";
+        submitForm = false;
+    }
+
+    if(submitForm) {
+        successMessage.style.display = "block";
+        form.reset();
+    }
+}
+
+form.addEventListener("submit", validateSignUp);
+
+function validateEmail(email) {
+    const regEx = /\S+@\S+\.\S+/;
+    const patternMatch = regEx.test(email);
+    return patternMatch;
+}
+
 // CALLING FUNCTIONS
 fetchPosts();

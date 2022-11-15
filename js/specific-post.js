@@ -9,6 +9,8 @@ const loading = document.querySelector(".loading");
 const postContainer = document.querySelector(".post-container");
 const headingMobile = document.querySelector(".header-text");
 const category = document.querySelector(".category");
+const date = document.querySelector(".date");
+const dateMobile = document.querySelector(".date-mobile");
 
 // FETCH SPECIFIC POST FROM API
 
@@ -17,8 +19,12 @@ async function fetchPost() {
         const response = await fetch(url);
         const post = await response.json();
 
+        const categoryId = post.categories[0];
+
+        console.log(categoryId);
+
         createHtml(post);
-        fetchCategories();
+        fetchCategories(categoryId);
     } catch(error) {
         console.log(error);
     }
@@ -28,6 +34,8 @@ fetchPost();
 
 function createHtml(post) {
     document.title = `${post.title.rendered} | SkinUp`
+    date.innerHTML = `<p><span>Published: </span>${post.date}</p>`
+    dateMobile.innerHTML = `<p><span>Published: </span>${post.date}</p>`
     loading.innerHTML = "";
     headingMobile.innerHTML =`<h1>${post.title.rendered}</h1>`
     postContainer.innerHTML = `<div class="post-title">
@@ -44,34 +52,25 @@ function createHtml(post) {
 // FETCH CATEGORIES FROM API
 const categoriesUrl = "https://skinup.maby.one/wp-json/wp/v2/categories/";
 
-async function fetchCategories() {
+async function fetchCategories(categoryId) {
     try {
         const response = await fetch(categoriesUrl);
         const categories = await response.json();
 
-        for(let i = 0; i < categories.length; i++) {
-            let categoryId = categories[i].id;
-            categoryId = parseInt(categoryId);
-            switch(categoryId) {
-                case 3:
-                    category.innerHTML = "Category: " + categories[0].name;
-                    break;
-                case 7: 
-                    category.innerHTML = "Category: " + categories[1].name; 
-                    break;
-                case 4: 
-                    category.innerHTML = "Category: " + categories[2].name; 
-                    break;
-                case 5: 
-                    category.innerHTML = "Category: " + categories[3].name; 
-                    break;
-                case 6: 
-                    category.innerHTML = "Category: " + categories[4].name; 
-                    break;
-                default:
-                    category.innerHTML = "Category: " + categories[5].name; 
-                    break;
 
+        for(let i = 0; i < categories.length; i++) {
+            if (categoryId === 3) {
+                category.innerHTML = "<p><span>Category: </span>" + categories[0].name + "</p>";
+            } else if (categoryId === 7) {
+                category.innerHTML = "<p><span>Category: </span>" + categories[1].name + "</p>"; 
+            } else if (categoryId === 4) {
+                category.innerHTML = "<p><span>Category: </span>" + categories[2].name + "</p>"; 
+            }  else if (categoryId === 5) {
+                category.innerHTML = "<p><span>Category: </span>" + categories[3].name + "</p>"; 
+            } else if (categoryId === 6) { 
+                category.innerHTML = "<p><span>Category: </span>" + categories[4].name + "</p>"; 
+            } else {
+                category.innerHTML = "<p><span>Category: </span>" + categories[5].name + "</p>"; 
             }
 
         }

@@ -65,16 +65,21 @@
                     <p>We would love to hear from you! Please reach out to us if you have something on your mind.</p>
                     <form class="contact-form">
                         <label for="name">Name</label><input type="text" id="name" name="name">
-                        <p class="hidden-p">Your name must be more than 5 characters</p>
+                        <p class="hidden-p contact-name">Your name must be more than 5 characters</p>
                         <label for="e-mail">E-mail</label><input type="e-mail" id="e-mail" name="e-mail">
-                        <p class="hidden-p">Please enter a valid e-mail address</p>
+                        <p class="hidden-p contact-email">Please enter a valid e-mail address</p>
                         <label for="subject">Subject</label><input type="text" id="subject" name="subject">
-                        <p class="hidden-p">The subject must be more than 15 characters</p>
+                        <p class="hidden-p contact-subject">The subject must be more than 15 characters</p>
                         <label for="message">Message</label><textarea id="message" name="message"></textarea>
-                        <p class="hidden-p">Your message must be more than 25 characters</p>
+                        <p class="hidden-p contact-message">Your message must be more than 25 characters</p>
+                        <div class="view-more">
+                            <button class="cta-button send-message">Send message</button>
+                        </div>
                     </form>
-                    <div class="view-more">
-                        <button class="cta-button">Send message</button>
+
+                    <div class="hidden success-message">
+                        <h3>Your message has been sent!</h3> 
+                        <p>Thank you for contacting us. We will get back to you as soon as possible. </p>
                     </div>
                 </div>
                 <div class="hidden-mobile contact-image">

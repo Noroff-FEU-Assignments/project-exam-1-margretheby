@@ -128,7 +128,7 @@ li {
     list-style: none;
 }
 
-a, .fa-angle-left, .fa-angle-right {
+a, .fa-angle-left, .fa-angle-right, span {
     text-decoration: none;
     color: #A63403;
     font-weight: 700;
@@ -182,7 +182,7 @@ a:hover, .fa-angle-left:hover, .fa-angle-right:hover {
 }
 
 .back-to-posts {
-    margin: 0px 10px;
+    margin-left: 50px;
 }
 
 .logo {
@@ -234,7 +234,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px;
+    margin: 20px 50px;
 }
 
 .footer-links p {
@@ -245,7 +245,7 @@ footer {
 
 .view-more, .signup, .contact-form {
     display: flex;
-    margin: 30px;
+    margin: 10px;
 }
 
 .post {
@@ -283,7 +283,7 @@ footer {
 }
 
 
-#email, .contact-form > input, .contact-form > textarea {
+#email, #email-posts, #email-homepage, .contact-form > input, .contact-form > textarea {
     margin-bottom: 10px;
     height: 30px;
     border: 1px solid #E2D1C6;
@@ -291,12 +291,13 @@ footer {
     font-size: 20px;
 }
 
-#email {
+#email, #email-posts, #email-homepage {
     width: 200px;
 }
 
 .signup, .contact-form {
     flex-direction: column;
+    justify-content: center;
 }
 
 /* ------- SPECIFIC POST ------- */
@@ -317,7 +318,10 @@ footer {
 }
 
 .contact-form > textarea, .contact-form > input {
-    width: 300px;
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: 200px;
+    max-width: 350px;
 }
 
 .contact-form > textarea {
@@ -325,7 +329,7 @@ footer {
 }
 
 .contact-us {
-    width: 350px;
+    max-width: 350px;
 }
 
 /* ------- ABOUT ------- */
@@ -337,7 +341,9 @@ footer {
 @media (min-width: 600px ) {
     main, .footer {
         max-width: 1170px;
+        padding: 0px;
     }
+
 
     .hamburger-menu {
         display: none;
@@ -352,7 +358,7 @@ footer {
         order: 2
     }
 
-    .hidden-nav ul {
+    .hidden-nav ul, .post-info {
         display: flex;
         flex-direction: row;
         margin: 12px 0px;
@@ -433,7 +439,11 @@ footer {
     .contact-layout {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
+    }
+
+    .contact-form {
+        margin: 20px 0px;
     }
 
     .contact-image {
@@ -470,6 +480,7 @@ footer {
 
 
 @media (min-width: 1200px) {
+
     .welcome, .newsletter {
         padding-left: 38px;
     }
@@ -516,6 +527,14 @@ footer {
         flex-direction: column;
     }
 
+    .post-info {
+        gap: 70%;
+    }
+
+    .post-title {
+        margin: 0;
+    }
+
 
     .post-content {
         flex-direction: row-reverse;
@@ -526,10 +545,13 @@ footer {
         gap: 50px;
     }
 
+    .back-to-posts {
+        display: none;
+    }
+
     .hide-p {
         min-width: 350px;
     }
-
 
 
     .about {

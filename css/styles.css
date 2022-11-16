@@ -69,7 +69,6 @@ p, .post-text {
 
 .is-resized > img {
     max-width: 100%;
-    max-height: 100%;
 }
 
 .hidden-p {
@@ -272,8 +271,9 @@ footer {
 
 
 .post-text {
-    margin-top: -10px;
-    margin-bottom: 20px;
+    margin-top: -2px;
+    margin-bottom: 50px;
+    height: 270px;
     font-weight: 100;
     color: #000000;
     border: 2px solid #E2D1C6;
@@ -333,15 +333,15 @@ footer {
 }
 
 /* ------- ABOUT ------- */
-.about > img {
-    max-width: 280px;
+.about-image > img, .image-max-width {
+    max-width: 100%;
 }
 
 
 @media (min-width: 600px ) {
     main, .footer {
         max-width: 1170px;
-        padding: 0px;
+        padding: 0px 10px;
     }
 
 
@@ -435,6 +435,15 @@ footer {
     .about-image {
         padding-top: 17px;
     }
+
+    .about-text {
+        width: 630px;
+    }
+
+    .about-image > img {
+        width: 540px;
+    }
+
     /*-----------CONTACT-----------*/
     .contact-layout {
         display: flex;
@@ -449,6 +458,12 @@ footer {
     .contact-image {
         margin-top: 20px;
         width: 350px;
+    }
+
+    /*----------- POSTS PAGE -----------*/
+
+    .posts-padding {
+        margin-left: 15px;
     }
 
     /*-----------SPECIFIC POST -----------*/
@@ -528,7 +543,11 @@ footer {
     }
 
     .post-info {
-        gap: 70%;
+        gap: 64%;
+    }
+
+    .post-info > div {
+        width: 220px;
     }
 
     .post-title {
@@ -558,8 +577,12 @@ footer {
         gap: 40px;
     }
 
-    .about img {
-        width: 500px;
+    .about-text {
+        max-width: 630px;
+    }
+
+    .about-image > img {
+        width: 540px;
     }
 
     .contact-layout {

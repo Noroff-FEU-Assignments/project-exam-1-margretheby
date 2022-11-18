@@ -10,7 +10,7 @@ const postContainer = document.querySelector(".post-container");
 const headingMobile = document.querySelector(".header-text");
 const category = document.querySelector(".category");
 const date = document.querySelector(".date");
-const dateMobile = document.querySelector(".date-mobile");
+const dateMobile = document.querySelector(".date-mobile")
 
 // FETCH SPECIFIC POST FROM API
 
@@ -21,11 +21,24 @@ async function fetchPost() {
 
         const categoryId = post.categories[0];
 
-        console.log(categoryId);
-
         createHtml(post);
         fetchCategories(categoryId);
+
+        const postImage = document.querySelector(".hide-p");
+        const imageModal = document.querySelector(".modal");
+        const body = document.querySelector("body");
+
+        postImage.addEventListener("click", function openModal() { 
+                        imageModal.style.display = "block";
+                        });
+        body.addEventListener("click", function closeModal(event) {
+             if (event.target.closest(".modal")) {
+             imageModal.style.display = "none"; }
+            });
+
     } catch(error) {
+        postContainer.innerHTML = `<h1>Something went wrong.</h1>
+                                    <p>Please try again later.</p>`;
         console.log(error);
     }
 }
@@ -43,9 +56,9 @@ function createHtml(post) {
                                 </div>
                                 <div class="post-content">
                                     <div class="hide-p">${post.content.rendered}</div>
+                                    <div class="hide-p modal">${post.content.rendered}</div>
                                     <div class="hide-img">${post.content.rendered}</div>
                                 </div>`
-
 }
 
 

@@ -311,6 +311,20 @@ footer {
     display: block;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    padding-top: 10%;
+    zoom: 140%;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: #00000070;
+} 
+
 /* ------- CONTACT ------- */
 
 .contact-form > label {
@@ -408,7 +422,7 @@ footer {
         margin-top: -22px;
     }
 
-    /*-----------_ABOUT-----------*/
+    /*-----------ABOUT-----------*/
     .about {
         display: flex;
         gap: 10px;

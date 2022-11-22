@@ -1,6 +1,6 @@
 let homePageContainer = document.querySelector(".posts")
 const homePageLoading = document.querySelector(".loading")
-const postsUrl = "https://skinup.maby.one/wp-json/wp/v2/posts/";
+const postsUrl = "https://skinup.maby.one/wp-json/wp/v2/posts?per_page=6";
 const leftArrow = document.querySelector(".fa-angle-left");
 const rightArrow = document.querySelector(".fa-angle-right");
 const carouselDots = document.querySelector(".carousel-dots");

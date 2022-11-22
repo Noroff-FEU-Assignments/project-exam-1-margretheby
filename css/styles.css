@@ -240,6 +240,10 @@ footer {
     margin: 0px;
 }
 
+.footer-links h2 {
+    font-size: 30px;
+}
+
 /* ------- HOMEPAGE ------- */
 
 .view-more, .signup, .contact-form {
@@ -248,23 +252,45 @@ footer {
 }
 
 .post {
+    border: 2px solid #E2D1C6;
+    border-radius: 5px;
     max-width: 350px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px 10px 40px 10px;
 }
 
-.posts, .all-posts {
+.posts, .all-posts, .category-posts, .all-posts-category {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+}
+
+.posts, .all-posts, .all-posts-category {
     justify-content: center;
+}
+
+.category-posts {
+    gap: 10px;
+    justify-content: space-between;
+}
+.category-posts > div:hover, .cta-button:hover, button:hover {
+    cursor: pointer;
+}
+
+.category-posts > div {
+    background-color: #E2D1C6;
+    border-radius: 5px;
+    padding: 8px 20px;
+}
+
+.category-posts > div > a {
+    font-size: 16px;
 }
 
 .posts {
     flex-direction: column;
 }
 
-.all-posts {
+.all-posts, .all-posts-category {
     flex-direction: row;
 }
 
@@ -276,9 +302,7 @@ footer {
     height: 270px;
     font-weight: 100;
     color: #000000;
-    border: 2px solid #E2D1C6;
     background-color: #FFFFFF;
-    border-radius: 5px;
     padding: 10px;
 }
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to SkinUp! A blog that helps guide you to find the right way to take care of your skin depending on your needs.">
+    <meta name="description" content="Our posts aim to cover different categories so it's easy for you to find something that fits your needs.">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/14580da1e1.js" crossorigin="anonymous"></script>
     <title>Posts | SkinUp</title>
@@ -60,7 +60,15 @@
         <section>
             <h1 class="hidden-mobile">Posts</h1>
             <h2>Categories</h2>
-            <p>Products, How to, Male skincare, Mature skin, At home spa</p>
+            <div class="category-posts">
+                <div class="category-allposts"><a href="posts.html">All posts</a></div>
+                <div class="category-products"><a>Products</a></div>
+                <div class="category-howto"><a>How to</a></div>
+                <div class="category-maleskincare"><a>Male skincare</a></div>
+                <div class="category-matureskin"><a>Mature skin</a></div>
+                <div class="category-athomespa"><a>At home spa</a></div>
+            </div>
+            
         </section>
         <section>
             <div class="loading">
@@ -69,6 +77,8 @@
                 <div><h2>.</h2></div>
             </div>
             <div class="all-posts">
+            </div>
+            <div class="all-posts-category">
             </div>
             <div class="view-more">
                 <button class="cta-button load-more">Load more</button>
@@ -87,7 +97,7 @@
     </main>
     <footer>
         <div class="footer">
-            <section class="footer-links">
+            <section class="footer-links category-links">
                 <h2>Categories</h2>
                 <a href="index.html">Products</a>
                 <a href="index.html">How to</a>

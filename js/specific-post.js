@@ -34,7 +34,7 @@ async function fetchPost() {
         body.addEventListener("click", function closeModal(event) {
              if (event.target.closest(".modal")) {
              imageModal.style.display = "none"; }
-            });
+            }, false);
 
     } catch(error) {
         postContainer.innerHTML = `<h1>Something went wrong.</h1>
@@ -87,6 +87,8 @@ async function fetchCategories(categoryId) {
             }
 
         }
+
+        console.log(categoryId);
 
 
     } catch (error) {

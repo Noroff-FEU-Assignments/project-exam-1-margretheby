@@ -1,17 +1,39 @@
 const loading = document.querySelector(".loading");
 const postsContainer = document.querySelector(".all-posts");
-const postsContainerCategories = document.querySelector(".all-posts-category");
 const loadMorePostsButton = document.querySelector(".load-more");
 
 const url = "https://skinup.maby.one/wp-json/wp/v2/posts?per_page=50";
 
-// HTML ELEMENTS CATEGORIES
-const categoryProducts = document.querySelector(".category-products");
-const categoryHowTo = document.querySelector(".category-howto");
-const categoryMaleSkincare = document.querySelector(".category-maleskincare");
-const categoryMatureSkin = document.querySelector(".category-matureskin");
-const categoryAtHomeSpa = document.querySelector(".category-athomespa");
-const categoryAllPosts = document.querySelector(".category-allposts");
+// ADDING CATEGORY ID PARAMS FOR CATEGORY BUTTONS BY FETCHING CATEGORY IDs
+const categoryUrl = "https://skinup.maby.one/wp-json/wp/v2/categories/";
+const categoryPosts = document.querySelector(".category-posts");
+
+async function fetchCategoryId() {
+    try {
+        const response = await fetch(categoryUrl);
+        const category = await response.json();
+        
+        const categoryAtHomeSpa = category[0].id;
+        const categoryHowTo = category[1].id;
+        const categoryMaleSkincare = category[2].id;
+        const categoryMatureSkin = category[3].id;
+        const categoryProducts = category[4].id;
+        const categoryUncategorized = category[5].id;
+
+        categoryPosts.innerHTML = `<div class="category-allposts"><a href="posts.html">All posts</a></div>
+                                    <div class="category-products"><a href="posts.html?categoryId=${categoryProducts}">Products</a></div>
+                                    <div class="category-howto"><a href="posts.html?categoryId=${categoryHowTo}">How to</a></div>
+                                    <div class="category-maleskincare"><a href="posts.html?categoryId=${categoryMaleSkincare}">Male skincare</a></div>
+                                    <div class="category-matureskin"><a href="posts.html?categoryId=${categoryMatureSkin}">Mature skin</a></div>
+                                    <div class="category-athomespa"><a href="posts.html?categoryId=${categoryAtHomeSpa}">At home spa</a></div>`
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+fetchCategoryId();
+
 
 // API CALL
 async function fetchAllPosts() {
@@ -22,172 +44,61 @@ async function fetchAllPosts() {
         for (let i = 0; i < posts.length; i++) {
             const postImage = posts[i].content.rendered;
             const postsCategoryId = posts[i].categories[0];
+            
+            // CREATE HTML FUNCTION
+            function createHtmlForPost(posts) {
+                loading.innerHTML = "";
+                postsContainer.innerHTML += `<div class="post">
+                                            <a href="specific-post.html?id=${posts[i].id}">
+                                            <div class="hide-p">${postImage}</div>
+                                            <div class="post-text">
+                                                <h2>${posts[i].title.rendered}</h2>
+                                                <p>${posts[i].excerpt.rendered}</p>                                                            </div>
+                                             </a>
+                                          </div>`
+            }
 
-                    // EVENT LISTENERS FOR CATEGORY BUTTONS
-                    categoryProducts.addEventListener("click", function filterCategoryProducts() {
-                        if(postsCategoryId === 6) {
-                            postsContainer.innerHTML = "";
-                            postsContainer.innerHTML += `<div class="post">
-                            <a href="specific-post.html?id=${posts[i].id}">
-                            <div class="hide-p">${postImage}</div>
-                            <div class="post-text">
-                                <h2>${posts[i].title.rendered}</h2>
-                                <p>${posts[i].excerpt.rendered}</p>
-                            </div>
-                            </a>
-                        </div>`;
-                        }
-                    });   
-                    
-                    categoryHowTo.addEventListener("click", function filterCategoryHowTo() {
-                        if(postsCategoryId === 7) {
-                            postsContainer.innerHTML = "";
-                            postsContainer.innerHTML += `<div class="post">
-                            <a href="specific-post.html?id=${posts[i].id}">
-                            <div class="hide-p">${postImage}</div>
-                            <div class="post-text">
-                                <h2>${posts[i].title.rendered}</h2>
-                                <p>${posts[i].excerpt.rendered}</p>
-                            </div>
-                            </a>`
-                        }
-                    });
+            // POSTS THAT DISPLAYS IF THERE IS NO CATEGORY ID PARAMETER
+            if(!postCategoryIds) {
+                if (i <= 8) {
+                    createHtmlForPost(posts);
 
-                    categoryMaleSkincare.addEventListener("click", function filterCategoryMaleSkincare() {
-                        if(postsCategoryId === 4) {
-                            postsContainer.innerHTML = "";
-                            postsContainer.innerHTML += `<div class="post">
-                            <a href="specific-post.html?id=${posts[i].id}">
-                            <div class="hide-p">${postImage}</div>
-                            <div class="post-text">
-                                <h2>${posts[i].title.rendered}</h2>
-                                <p>${posts[i].excerpt.rendered}</p>
-                            </div>
-                            </a>
-                        </div>`;
-                        }
-                    });
-
-                    categoryAtHomeSpa.addEventListener("click", function filterCategoryAtHomeSpa() {
-                        if(postsCategoryId === 3) {
-                            postsContainer.innerHTML = "";
-                            postsContainer.innerHTML += `<div class="post">
-                            <a href="specific-post.html?id=${posts[i].id}">
-                            <div class="hide-p">${postImage}</div>
-                            <div class="post-text">
-                                <h2>${posts[i].title.rendered}</h2>
-                                <p>${posts[i].excerpt.rendered}</p>
-                            </div>
-                            </a>
-                        </div>`;
-                        }
-                    });
-
-                    categoryMatureSkin.addEventListener("click", function filterCategoryMatureSkin() {
-                        if(postsCategoryId === 5) {
-                            postsContainer.innerHTML = "";
-                            postsContainer.innerHTML += `<div class="post">
-                            <a href="specific-post.html?id=${posts[i].id}">
-                            <div class="hide-p">${postImage}</div>
-                            <div class="post-text">
-                                <h2>${posts[i].title.rendered}</h2>
-                                <p>${posts[i].excerpt.rendered}</p>
-                            </div>
-                            </a>
-                        </div>`;
-                        }
-                    });
-
-                    // POSTS THAT DISPLAYS IF THERE IS NO CATEGORY ID PARAMETER
-                    if(!postCategoryIds) {
-                            loading.innerHTML = "";
-                            if (i <= 8) {
-                            postsContainer.innerHTML += `<div class="post">
+                    } else { 
+                        loadMorePostsButton.addEventListener("click", function loadAllPosts() {
+                                postsContainer.innerHTML += `<div class="post">
                                                                 <a href="specific-post.html?id=${posts[i].id}">
-                                                                <div class="hide-p">${postImage}</div>
-                                                                <div class="post-text">
-                                                                    <h2>${posts[i].title.rendered}</h2>
-                                                                    <p>${posts[i].excerpt.rendered}</p>
-                                                                </div>
+                                                                    <div class="hide-p">${postImage}</div>
+                                                                    <div class="post-text">
+                                                                        <h2>${posts[i].title.rendered}</h2>
+                                                                        <p>${posts[i].excerpt.rendered}</p>
+                                                                    </div>
                                                                 </a>
                                                             </div>`
-                                                            
-                            } else { 
-                                loadMorePostsButton.addEventListener("click", function loadAllPosts() {
-                                        postsContainer.innerHTML += `<div class="post">
-                                                                        <a href="specific-post.html?id=${posts[i].id}">
-                                                                        <div class="hide-p">${postImage}</div>
-                                                                        <div class="post-text">
-                                                                            <h2>${posts[i].title.rendered}</h2>
-                                                                            <p>${posts[i].excerpt.rendered}</p>
-                                                                        </div>
-                                                                        </a>
-                                                                    </div>`
-                                    });
-                                
-                                }
-                    // POSTS THAT DISPLAY IF CATEGORY ID PARAMETER EXISTS 
-                    } else if (postsCategoryId === 7 && postCategoryIds === "7") {
-                            console.log(postCategoryIds);
-                            loading.innerHTML = "";
-                            postsContainer.innerHTML = "";
-                            postsContainerCategories.innerHTML += `<div class="post">
-                                                            <a href="specific-post.html?id=${posts[i].id}">
-                                                            <div class="hide-p">${postImage}</div>
-                                                            <div class="post-text">
-                                                                <h2>${posts[i].title.rendered}</h2>
-                                                                <p>${posts[i].excerpt.rendered}</p>
-                                                            </div>
-                                                            </a>
-                                                        </div>` 
-                            
-                            } else if (postsCategoryId === 6 && postCategoryIds === "6") {
-                            loading.innerHTML = "";
-                            postsContainer.innerHTML = "";
-                            postsContainerCategories.innerHTML += `<div class="post">
-                                                            <a href="specific-post.html?id=${posts[i].id}">
-                                                            <div class="hide-p">${postImage}</div>
-                                                            <div class="post-text">
-                                                                <h2>${posts[i].title.rendered}</h2>
-                                                                <p>${posts[i].excerpt.rendered}</p>
-                                                            </div>
-                                                            </a>
-                                                        </div>` 
-                            } else if (postsCategoryId === 4 && postCategoryIds === "4") {
-                            loading.innerHTML = "";
-                            postsContainer.innerHTML = "";
-                            postsContainerCategories.innerHTML += `<div class="post">
-                                                            <a href="specific-post.html?id=${posts[i].id}">
-                                                            <div class="hide-p">${postImage}</div>
-                                                            <div class="post-text">
-                                                                <h2>${posts[i].title.rendered}</h2>
-                                                                <p>${posts[i].excerpt.rendered}</p>
-                                                            </div>                                                                </a>
-                                                        </div>`
-                            } else if (postsCategoryId === 3 && postCategoryIds === "3") {
-                            loading.innerHTML = "";
-                            postsContainer.innerHTML = "";
-                            postsContainerCategories.innerHTML += `<div class="post">
-                                                        <a href="specific-post.html?id=${posts[i].id}">
-                                                        <div class="hide-p">${postImage}</div>
-                                                        <div class="post-text">
-                                                            <h2>${posts[i].title.rendered}</h2>
-                                                            <p>${posts[i].excerpt.rendered}</p>                                                            </div>
-                                                         </a>
-                                                      </div>`
-                            } else if (postsCategoryId === 5 && postCategoryIds === "5") {
-                                loading.innerHTML = "";
-                                postsContainerCategories.innerHTML += `<div class="post">
-                                                            <a href="specific-post.html?id=${posts[i].id}">
-                                                            <div class="hide-p">${postImage}</div>
-                                                            <div class="post-text">
-                                                                <h2>${posts[i].title.rendered}</h2>
-                                                                <p>${posts[i].excerpt.rendered}</p>                                                            </div>
-                                                             </a>
-                                                          </div>`
-                            }
-                        
+                        });
                     }
+                    // POSTS THAT DISPLAY IF CATEGORY ID PARAMETER EXISTS 
+                } else if (postsCategoryId === 7 && postCategoryIds === "7") {
+                    createHtmlForPost(posts);
+                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">Load more</button></a>`
+                        
+                } else if (postsCategoryId === 6 && postCategoryIds === "6") {
+                    createHtmlForPost(posts);
+                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">Load more</button></a>`
+
+                } else if (postsCategoryId === 4 && postCategoryIds === "4") {
+                    createHtmlForPost(posts);
+                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">Load more</button></a>`
+
+                } else if (postsCategoryId === 3 && postCategoryIds === "3") {
+                    createHtmlForPost(posts);
+                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">Load more</button></a>`
+
+                } else if (postsCategoryId === 5 && postCategoryIds === "5") {
+                    createHtmlForPost(posts);
+                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">Load more</button></a>`                    
+                }
+                        
+            }
         } catch(error) {
             console.log(error);
             postsContainer.innerHTML = "Something went wrong.";

@@ -114,7 +114,7 @@ p, .post-text {
 
 /* ------- HEADER ------- */
 
-header, footer {
+header {
     background-color: #E2D1C6;
 }
 
@@ -225,6 +225,7 @@ a:hover, .fa-angle-left:hover, .fa-angle-right:hover {
 
 /* ------- FOOTER ------- */
 footer {
+    background-color: #EBE2D9;
     margin-top: 100px;
     padding-bottom: 70px;
 }
@@ -272,7 +273,7 @@ footer {
     gap: 10px;
     justify-content: space-between;
 }
-.category-posts > div:hover, .cta-button:hover, button:hover {
+.category-posts > div:hover, .cta-button:hover, button:hover, .hide-p:hover {
     cursor: pointer;
 }
 
@@ -299,7 +300,7 @@ footer {
 .post-text {
     margin-top: -2px;
     margin-bottom: 50px;
-    height: 270px;
+    height: 220px;
     font-weight: 100;
     color: #000000;
     background-color: #FFFFFF;
@@ -363,7 +364,7 @@ footer {
 }
 
 .contact-form > textarea {
-    height: 100px;
+    height: 190px;
 }
 
 .contact-us {
@@ -494,7 +495,7 @@ footer {
     }
 
     .contact-image {
-        margin-top: 20px;
+        margin-top: 10px;
         width: 350px;
     }
 
@@ -516,11 +517,7 @@ footer {
 
 
     /*-----------FOOTER-----------*/
-    .footer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
+
 
     footer {
         padding-bottom: 10px;
@@ -610,7 +607,6 @@ footer {
         min-width: 350px;
     }
 
-
     .about {
         gap: 40px;
     }
@@ -628,6 +624,13 @@ footer {
     }
 
     .contact-image {
+        margin-top: 55px;
         width: 100%;
+    }
+
+    .footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 }

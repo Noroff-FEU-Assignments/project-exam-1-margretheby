@@ -55,3 +55,95 @@ function mapProductsCategory() {
 };
 
 categoryProducts.addEventListener("click", mapProductsCategory);
+
+
+
+
+
+// ADD EVENT LISTENERS
+
+
+                    // EVENT LISTENERS FOR CATEGORY BUTTONS
+                    categoryProducts.addEventListener("click", function filterCategoryProducts() {
+                        if(postsCategoryId === 6) {
+                            postsContainer.innerHTML = "";
+                            postsContainer.innerHTML += `<div class="post">
+                            <a href="specific-post.html?id=${posts[i].id}">
+                            <div class="hide-p">${postImage}</div>
+                            <div class="post-text">
+                                <h2>${posts[i].title.rendered}</h2>
+                                <p>${posts[i].excerpt.rendered}</p>
+                            </div>
+                            </a>
+                        </div>`;
+                        }
+                    });   
+                    
+                    categoryHowTo.addEventListener("click", function filterCategoryHowTo() {
+                        if(postsCategoryId === 7) {
+                            postsContainer.innerHTML = "";
+                            postsContainer.innerHTML += `<div class="post">
+                            <a href="specific-post.html?id=${posts[i].id}">
+                            <div class="hide-p">${postImage}</div>
+                            <div class="post-text">
+                                <h2>${posts[i].title.rendered}</h2>
+                                <p>${posts[i].excerpt.rendered}</p>
+                            </div>
+                            </a>`
+                        }
+                    });
+
+                    categoryMaleSkincare.addEventListener("click", function filterCategoryMaleSkincare() {
+                        if(postsCategoryId === 4) {
+                            postsContainer.innerHTML = "";
+                            postsContainer.innerHTML += `<div class="post">
+                            <a href="specific-post.html?id=${posts[i].id}">
+                            <div class="hide-p">${postImage}</div>
+                            <div class="post-text">
+                                <h2>${posts[i].title.rendered}</h2>
+                                <p>${posts[i].excerpt.rendered}</p>
+                            </div>
+                            </a>
+                        </div>`;
+                        }
+                    });
+
+                    categoryAtHomeSpa.addEventListener("click", function filterCategoryAtHomeSpa() {
+                        if(postsCategoryId === 3) {
+                            postsContainer.innerHTML = "";
+                            postsContainer.innerHTML += `<div class="post">
+                            <a href="specific-post.html?id=${posts[i].id}">
+                            <div class="hide-p">${postImage}</div>
+                            <div class="post-text">
+                                <h2>${posts[i].title.rendered}</h2>
+                                <p>${posts[i].excerpt.rendered}</p>
+                            </div>
+                            </a>
+                        </div>`;
+                        }
+                    });
+
+                    categoryMatureSkin.addEventListener("click", function filterCategoryMatureSkin() {
+                        if(postsCategoryId === 5) {
+                            postsContainer.innerHTML = "";
+                            postsContainer.innerHTML += `<div class="post">
+                            <a href="specific-post.html?id=${posts[i].id}">
+                            <div class="hide-p">${postImage}</div>
+                            <div class="post-text">
+                                <h2>${posts[i].title.rendered}</h2>
+                                <p>${posts[i].excerpt.rendered}</p>
+                            </div>
+                            </a>
+                        </div>`;
+                        }
+                    });
+
+
+
+
+// HTML ELEMENTS CATEGORY BUTTONS
+const categoryButtonProducts = document.querySelector(".category-products");
+const categoryButtonHowTo = document.querySelector(".category-howto");
+const categoryButtonMaleSkincare = document.querySelector(".category-maleskincare");
+const categoryButtonMatureSkin = document.querySelector(".category-matureskin");
+const categoryButtonAtHomeSpa = document.querySelector(".category-athomespa");

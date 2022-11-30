@@ -35,7 +35,7 @@ async function fetchCategoryId() {
 fetchCategoryId();
 
 
-// API CALL
+// API CALL FOR POSTS SECTION
 async function fetchAllPosts() {
     try {
         const response = await fetch(url);
@@ -74,28 +74,29 @@ async function fetchAllPosts() {
                                                                     </div>
                                                                 </a>
                                                             </div>`
+                        loadMorePostsButton.style.display = "none";
                         });
                     }
                     // POSTS THAT DISPLAY IF CATEGORY ID PARAMETER EXISTS 
                 } else if (postsCategoryId === 7 && postCategoryIds === "7") {
                     createHtmlForPost(posts);
-                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">Load more</button></a>`
+                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">All posts</button></a>`
                         
                 } else if (postsCategoryId === 6 && postCategoryIds === "6") {
                     createHtmlForPost(posts);
-                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">Load more</button></a>`
+                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">All posts</button></a>`
 
                 } else if (postsCategoryId === 4 && postCategoryIds === "4") {
                     createHtmlForPost(posts);
-                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">Load more</button></a>`
+                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">All posts</button></a>`
 
                 } else if (postsCategoryId === 3 && postCategoryIds === "3") {
                     createHtmlForPost(posts);
-                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">Load more</button></a>`
+                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">All posts</button></a>`
 
                 } else if (postsCategoryId === 5 && postCategoryIds === "5") {
                     createHtmlForPost(posts);
-                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">Load more</button></a>`                    
+                    loadMorePostsButton.innerHTML = `<a href="posts.html"><button class="cta-button load-more">All posts</button></a>`                    
                 }
                         
             }

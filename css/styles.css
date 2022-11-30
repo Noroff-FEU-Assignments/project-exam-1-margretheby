@@ -11,8 +11,11 @@ main, .header-text-specific {
     padding: 0px 15px;
 }
 
-h1, h2, h3, .logo {
+h1, h2, h3, .logo, .header-text, .header-text-specific {
     font-family: 'Didot', serif;
+}
+
+h1, h2, h3, .logo, a:hover, .fa-angle-left:hover, .fa-angle-right:hover {
     color: #BF6A1F;
 }
 
@@ -20,7 +23,7 @@ h1, h2 {
     margin: 10px 0px;
 }
 
-h1, .fa-solid, .fa-regular {
+h1, .fa-solid, .fa-regular, .fa-bars, .fa-circle, .header-text-specific, .nav-mobile > *, .footer-links h2 {
     font-size: 30px;
 }
 
@@ -29,8 +32,11 @@ h2 {
 }
 
 p, .post-text {
-    margin-top: 15px;
     font-size: 16px;
+}
+
+.logo, .cta-button {
+    font-size: 25px;
 }
 
 .cta-button {
@@ -40,7 +46,6 @@ p, .post-text {
     border-radius: 10px;
     min-width: 205px;
     padding: 4px 0px;
-    font-size: 25px;
     font-weight: 500;
 }
 
@@ -48,10 +53,11 @@ p, .post-text {
     background-color: #D4BEAB;
 }
 
-.fa-bars, .fa-circle {
-    color: #A63403;
-    font-size: 30px;
+.fa-bars, .fa-circle, .post-text {
     padding: 10px;
+}
+.hidden-p, .fa-bars, .fa-circle, a, .fa-angle-left, .fa-angle-right, span {
+    color: #A63403;
 }
 
 .hidden, 
@@ -63,7 +69,9 @@ p, .post-text {
 #arrows,
 .carousel-dots, 
 .header-text-web, 
-.hidden-mobile {
+.hidden-mobile,
+.nav-mobile,
+.modal {
     display: none;
 }
 
@@ -72,13 +80,13 @@ p, .post-text {
 }
 
 .hidden-p {
-    color: #A63403;
     font-size: 14px;
     font-weight: bold;
     margin-top: -10px;
     margin-bottom: 10px;
 }
-/* FLEXBOX */
+
+/* -------------- FLEXBOX -------------- */
 .loading, 
 .header-image, 
 .header-image-specific-post, 
@@ -99,11 +107,40 @@ p, .post-text {
     flex-direction: row;
 }
 
+.header-image, 
+.header-image-specific-post, 
+.footer-links, .all-posts, 
+.posts, 
+.signup, 
+.contact-form, 
+.post-content {
+    flex-direction: column;
+}
+
+.posts, 
+.all-posts, 
+.all-posts-category, 
+.signup, 
+.contact-form, 
+.header-image, 
+.header-image-specific-post {
+    justify-content: center;
+}
+
+.navigation, .category-posts {
+    justify-content: space-between;
+}
+
+.footer-links, .navigation  {
+    align-items: center;
+}
+
 
 .loading {
     max-width: 50px;
 }
 
+/* -------------- LOADING -------------- */
 .loading div {
     animation-duration: 2s;
     animation-name: bounce;
@@ -133,7 +170,7 @@ p, .post-text {
 
 /* ------- HEADER ------- */
 
-header {
+header, .nav-mobile, .category-posts > div {
     background-color: #E2D1C6;
 }
 
@@ -148,7 +185,6 @@ li {
 
 a, .fa-angle-left, .fa-angle-right, span {
     text-decoration: none;
-    color: #A63403;
     font-weight: 700;
 }
 
@@ -156,19 +192,17 @@ a {
     font-size: 20px;
 }
 
-a:hover, .fa-angle-left:hover, .fa-angle-right:hover {
-    color: #BF6A1F;
-}
-
 
 #current {
     text-decoration: underline;
 }
 
-.header-image, .header-image-specific-post {
+.header-image, .header-image-specific-post, footer {
     background-color: #EBE2D9;
+}
+
+.header-image, .header-image-specific-post {
     min-height: 152px;
-    flex-direction: column;
 }
 
 .header-image-specific-post a {
@@ -182,34 +216,25 @@ a:hover, .fa-angle-left:hover, .fa-angle-right:hover {
     background-size: cover;
 }
 
-.header-text, .header-text-specific {
-    font-family: 'Didot', serif;
-}
-
 .header-text, .header-text-web {
     font-size: 45px;
-    margin-left: 50px;
 }
 
 
 .header-text-specific {
     margin-top: 30px;
-    font-size: 30px;
 }
 
-.back-to-posts {
+.back-to-posts, .header-text, .header-text-web {
     margin-left: 50px;
 }
 
 .logo {
     margin: 0px 30px;
-    font-size: 25px;
 }
 
 .nav-mobile {
-    display: none;
     position: absolute;
-    background-color: #E2D1C6;
     padding: 0px 25px 15px 10px;
     border-radius: 0px 0px 30px 0px;
     margin-left: -5px;
@@ -218,13 +243,10 @@ a:hover, .fa-angle-left:hover, .fa-angle-right:hover {
 .nav-mobile > * {
     margin-bottom: 25px;
     margin-right: 30px;
-    font-size: 30px;
 }
 
 .navigation {
     max-width: 1170px;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .navigation > div {
@@ -233,7 +255,7 @@ a:hover, .fa-angle-left:hover, .fa-angle-right:hover {
 
 
 
-#checkbox:checked ~ .nav-mobile {
+#checkbox:checked ~ .nav-mobile, .post-content img {
     display: block;
 }
 
@@ -241,23 +263,16 @@ a:hover, .fa-angle-left:hover, .fa-angle-right:hover {
 
 /* ------- FOOTER ------- */
 footer {
-    background-color: #EBE2D9;
     margin-top: 100px;
     padding-bottom: 70px;
 }
 
 .footer-links {
-    flex-direction: column;
-    align-items: center;
     margin: 20px 50px;
 }
 
 .footer-links p {
     margin: 0px;
-}
-
-.footer-links h2 {
-    font-size: 30px;
 }
 
 /* ------- HOMEPAGE ------- */
@@ -278,20 +293,18 @@ footer {
     align-items: flex-start;
 }
 
-.posts, .all-posts, .all-posts-category, .signup, .contact-form, .header-image, .header-image-specific-post {
-    justify-content: center;
-}
-
 .category-posts {
     gap: 10px;
-    justify-content: space-between;
 }
-.category-posts > div:hover, .cta-button:hover, button:hover, .hide-p:hover {
+.category-posts > div:hover, .cta-button:hover, button:hover {
     cursor: pointer;
 }
 
+.hide-p:hover {
+    cursor: zoom-in;
+}
+
 .category-posts > div {
-    background-color: #E2D1C6;
     border-radius: 5px;
     padding: 8px 20px;
 }
@@ -301,7 +314,6 @@ footer {
 }
 
 .all-posts, .posts {
-    flex-direction: column;
     animation-duration: 1.5s;
     animation-name: slide-in;
     animation-iteration-count: 1;
@@ -318,9 +330,6 @@ footer {
     }
 }
 
-
-
-
 .post-text {
     margin-top: -2px;
     margin-bottom: 50px;
@@ -328,7 +337,6 @@ footer {
     font-weight: 100;
     color: #000000;
     background-color: #FFFFFF;
-    padding: 10px;
 }
 
 
@@ -344,22 +352,16 @@ footer {
     width: 200px;
 }
 
-.signup, .contact-form {
-    flex-direction: column;
-}
+
 
 /* ------- SPECIFIC POST ------- */
-.post-content {
+.post-content, p, .post-text {
     margin-top: 15px;
-    flex-direction: column;
 }
 
-.post-content img {
-    display: block;
-}
+
 
 .modal {
-    display: none;
     position: fixed;
     padding-top: 10%;
     zoom: 140%;
@@ -370,7 +372,11 @@ footer {
     width: 100%;
     overflow: auto;
     background-color: #00000070;
-} 
+}
+
+.modal:hover {
+    cursor: zoom-out;
+}
 
 /* ------- CONTACT ------- */
 
@@ -406,7 +412,7 @@ footer {
     }
 
 
-    .hamburger-menu {
+    .hamburger-menu, .header-text, .hidden-web {
         display: none;
     }
 
@@ -415,19 +421,18 @@ footer {
     }
 
     .hidden-nav {
-        display: flex;
         order: 2
     }
 
     /* FLEXBOX */
-    .hidden-nav ul, .post-info, .about, .contact-layout {
+    .hidden-nav, .hidden-nav ul, .post-info, .about, .contact-layout {
         display: flex;
     }
-    .posts, .footer, .hidden-nav ul, .post-info {
+    .posts, .footer, .hidden-nav ul, .post-info, .all-posts {
         flex-direction: row;
     }
-    
-    .posts, .footer {
+
+    .footer {
         justify-content: center;
     }
 
@@ -455,14 +460,9 @@ footer {
 
     .header-text-web {
         font-size: 5em;
-        display: block;
         max-width: 1170px;
         margin-right: 250px;
 
-    }
-
-    .header-text {
-        display: none;
     }
 
     .signup {
@@ -481,16 +481,12 @@ footer {
         align-items: flex-start;
     }
 
-    .hidden-mobile {
+    .hidden-mobile, .header-text-web  {
         display: block;
     }
 
     .hidden-mobile img {
         max-width: 100%;
-    }
-
-    .hidden-web {
-        display: none;
     }
 
     .about div {
@@ -511,7 +507,6 @@ footer {
 
     /*-----------CONTACT-----------*/
     .contact-layout {
-        flex-direction: column;
         gap: 20px;
     }
 
@@ -532,7 +527,7 @@ footer {
 
     /*-----------SPECIFIC POST -----------*/
 
-    .post-container {
+    .post-container, .contact-layout {
         flex-direction: column;
     }
 
@@ -599,10 +594,6 @@ footer {
 
     .post {
         min-height: 550px;
-    }
-
-    .post-container {
-        flex-direction: column;
     }
 
     .post-info {

@@ -71,7 +71,8 @@ p, .post-text {
 .header-text-web, 
 .hidden-mobile,
 .nav-mobile,
-.modal {
+.modal, 
+.header-image-web {
     display: none;
 }
 
@@ -225,7 +226,7 @@ a {
     margin-top: 30px;
 }
 
-.back-to-posts, .header-text, .header-text-web {
+.header-text, .header-text-web {
     margin-left: 50px;
 }
 
@@ -412,7 +413,7 @@ footer {
     }
 
 
-    .hamburger-menu, .header-text, .hidden-web {
+    .hamburger-menu, .header-text, .hidden-web, .header-image-specific-post {
         display: none;
     }
 
@@ -445,7 +446,7 @@ footer {
     }
 
     /*-------- HEADER -------*/
-    .header-image, .header-image-specific-post {
+    .header-image {
         height: 290px;
         background-image: url("../images/web-header.jpg");
         background-position: 45%;
@@ -481,7 +482,7 @@ footer {
         align-items: flex-start;
     }
 
-    .hidden-mobile, .header-text-web  {
+    .hidden-mobile, .header-text-web, .header-image-web  {
         display: block;
     }
 

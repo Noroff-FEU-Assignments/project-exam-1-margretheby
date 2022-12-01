@@ -88,8 +88,6 @@ async function fetchCategories(categoryId) {
 
         }
 
-        console.log(categoryId);
-
 
     } catch (error) {
         console.log(error);

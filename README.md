@@ -1,12 +1,12 @@
-# Cross Course Project - Rainydays
+# Project Exam 1 - SkinUp Blog
 
 <img src="https://github.com/Noroff-FEU-Assignments/project-exam-1-margretheby/blob/main/skinup-screenshot.jpg" alt="Screenshot of the SkinUp blog website on desktop">
 This website was a five week project exam in the fall of 2022, during the frontend course at Noroff School of techonology and digital media. 
 
 ## Description
-This assignment was to create a website for a blog. I was to create a headless WordPress website to create an API, and use HTML, CSS and JavaScript to create the website and fetch the API for the blogposts. 
+The assignment was to create a website for a blog. I was to create a headless WordPress website with blogposts and use it as an API. Then use HTML, CSS and JavaScript to create the website for the blog, fetch the API and display the blogposts. 
 
-In this assignment the topic of the blog was optional. I would find images and copy text myself. It was acceptable to use loren ipsum for the copy text in the blogposts, but the headings needed to make sense. 
+In this assignment the topic of the blog was optional. I was to find images and copy text myself. It was acceptable to use loren ipsum for the copy text in the blogposts, but the headings needed to make sense. I chose skincare as the topic for my blog, because that gave me the opportunity to create a website with a relaxing and neutral design, which I had not done before.
 
 Link to the site: https://skinup.netlify.app/
 

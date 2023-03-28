@@ -1,0 +1,27 @@
+{
+  "name": "project-exam-1-margretheby",
+  "version": "1.0.0",
+  "description": "<img src=\"https://github.com/Noroff-FEU-Assignments/project-exam-1-margretheby/blob/main/skinup-screenshot.jpg\" alt=\"Screenshot of the SkinUp blog website on desktop\"> This website was a five week project exam in the fall of 2022, during the frontend course at Noroff School of techonology and digital media.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test-unit",
+    "test-unit": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noroff-FEU-Assignments/project-exam-1-margretheby.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Noroff-FEU-Assignments/project-exam-1-margretheby/issues"
+  },
+  "homepage": "https://github.com/Noroff-FEU-Assignments/project-exam-1-margretheby#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.4",
+    "eslint": "^8.36.0",
+    "eslint-plugin-jest": "^27.2.1",
+    "jest": "^29.2.0"
+  }
+}
